@@ -58,11 +58,12 @@ Y = Y.map({'Canceled': 1, 'Not_Canceled': 0})
 X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
 # scaler = StandardScaler()
-# features = scaler.fit_transform(X)
+# features = scaler.fit_transform(X.head(7500))
 #
 # # PCA
-# pca = PCA(n_components=2)
+# pca = PCA()
 # pca_model = pca.fit_transform(features)
+# print(pca.explained_variance_ratio_)
 #
 # # t-SNE
 # tsne = TSNE(n_components=2, perplexity=30, random_state=0)
@@ -71,9 +72,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_
 # # Visualize results
 # fig, axs = plt.subplots(1, 2, figsize=(10, 5))
 #
-# axs[0].scatter(pca_result[:, 0], pca_result[:, 1], c=Y.head(7500))
+# axs[0].scatter(pca_model[:, 0], pca_model[:, 1], c=Y.head(7500))
 # axs[0].set_title('PCA Visualization')
-# axs[1].scatter(tsne_result[:, 0], tsne_result[:, 1], c=Y.head(7500))
+# axs[1].scatter(tsne_model[:, 0], tsne_model[:, 1], c=Y.head(7500))
 # axs[1].set_title('t-SNE Visualization')
 # plt.show()
 #
